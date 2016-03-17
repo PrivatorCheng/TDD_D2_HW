@@ -63,6 +63,7 @@ namespace BookSaleTest
         #endregion
 
         //Scenario 1: 單獨購買一本哈利波特, 沒有折扣
+        //            不需要修改程式, 測試通過 
         [TestMethod]
         public void GetPriceTest_S1_Buy1Book_ShouldBeNoDiscount_Return_100()
         {
