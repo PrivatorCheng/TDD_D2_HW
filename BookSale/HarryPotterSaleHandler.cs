@@ -9,10 +9,10 @@ namespace BookSale
         public override double GetBookOrderPrice(List<BookOrderModel> boList)
         {
             double orderPrice = 0;
-            int orderCnt = 0;
 
             while (! NoBookInOrderList(boList))
             {
+                int orderCnt = 0;
                 double tmpOrderPrice = 0;
                 foreach (BookOrderModel bo in boList)
                 {
@@ -21,8 +21,8 @@ namespace BookSale
                     {
                         tmpOrderPrice += b.BookPrice;
                         bo.OrderAmt -= 1;
+                        orderCnt += 1;
                     }
-                    orderCnt += 1;
                 }
                 double dDiscount;
                 switch (orderCnt)
