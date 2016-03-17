@@ -123,5 +123,50 @@ namespace BookSaleTest
             Assert.AreEqual(expectedPrice, actualPrice);
         }
 
+        //Scenario 4: 購買四本不同的哈利波特, 有20%折扣
+        [TestMethod]
+        public void GetPriceTest_S4_Buy4Book_ShouldGet20PercentDiscount_Return_320()
+        {
+            //arrange
+            BookOrderHandler bo = new HarryPotterSaleHandler();
+            double expectedPrice = 320;
+            List<BookOrderModel> boList = new List<BookOrderModel>()
+            {
+                new BookOrderModel { BookID = "0001", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0002", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0003", OrderAmt = 1  }, 
+                new BookOrderModel { BookID = "0004", OrderAmt = 1  }
+            };
+
+            //act
+            double actualPrice = bo.GetBookOrderPrice(boList);
+
+            //return
+            Assert.AreEqual(expectedPrice, actualPrice);
+        }
+
+        //Scenario 5: 購買四本不同的哈利波特, 有20%折扣
+        [TestMethod]
+        public void GetPriceTest_S5_Buy5Book_ShouldGet25PercentDiscount_Return_375()
+        {
+            //arrange
+            BookOrderHandler bo = new HarryPotterSaleHandler();
+            double expectedPrice = 375;
+            List<BookOrderModel> boList = new List<BookOrderModel>()
+            {
+                new BookOrderModel { BookID = "0001", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0002", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0003", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0004", OrderAmt = 1  }, 
+                new BookOrderModel { BookID = "0005", OrderAmt = 1  }
+            };
+
+            //act
+            double actualPrice = bo.GetBookOrderPrice(boList);
+
+            //return
+            Assert.AreEqual(expectedPrice, actualPrice);
+        }
+
     }
 }
