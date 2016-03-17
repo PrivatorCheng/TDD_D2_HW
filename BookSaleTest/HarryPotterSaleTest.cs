@@ -102,5 +102,26 @@ namespace BookSaleTest
             Assert.AreEqual(expectedPrice, actualPrice);
         }
 
+        //Scenario 3: 購買三本不同的哈利波特, 有10%折扣
+        [TestMethod]
+        public void GetPriceTest_S3_Buy3Book_ShouldGet10PercentDiscount_Return_270()
+        {
+            //arrange
+            BookOrderHandler bo = new HarryPotterSaleHandler();
+            double expectedPrice = 270;
+            List<BookOrderModel> boList = new List<BookOrderModel>()
+            {
+                new BookOrderModel { BookID = "0001", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0002", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0003", OrderAmt = 1  }
+            };
+
+            //act
+            double actualPrice = bo.GetBookOrderPrice(boList);
+
+            //return
+            Assert.AreEqual(expectedPrice, actualPrice);
+        }
+
     }
 }

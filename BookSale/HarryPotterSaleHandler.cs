@@ -16,10 +16,20 @@ namespace BookSale
                 if (b != null) orderPrice += bo.OrderAmt * b.BookPrice;
                 orderCnt += 1;
             }
-            if (orderCnt == 2)
+            double dDiscount;
+            switch (orderCnt)
             {
-                orderPrice = orderPrice * 0.95;
+                case 2:
+                    dDiscount = 0.95;
+                    break;
+                case 3:
+                    dDiscount = 0.9;
+                    break;
+                default:
+                    dDiscount = 1;
+                    break;
             }
+            orderPrice = orderPrice * dDiscount;
             return orderPrice;
         }
     }
