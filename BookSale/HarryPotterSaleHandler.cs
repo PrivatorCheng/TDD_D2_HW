@@ -25,6 +25,12 @@ namespace BookSale
                 case 3:
                     dDiscount = 0.9;
                     break;
+                case 4:
+                    dDiscount = 0.8;
+                    break;
+                case 5:
+                    dDiscount = 0.75;
+                    break;
                 default:
                     dDiscount = 1;
                     break;
