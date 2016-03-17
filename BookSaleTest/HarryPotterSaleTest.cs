@@ -168,5 +168,26 @@ namespace BookSaleTest
             Assert.AreEqual(expectedPrice, actualPrice);
         }
 
+        //Scenario 6: 一二集各買了一本，第三集買了兩本，價格應為100*3*0.9 + 100 = 370
+        [TestMethod]
+        public void GetPriceTest_S6_Buy4BookButNotAllDifferent_SameBookGetNoDiscount_Return_370()
+        {
+            //arrange
+            BookOrderHandler bo = new HarryPotterSaleHandler();
+            double expectedPrice = 370;
+            List<BookOrderModel> boList = new List<BookOrderModel>()
+            {
+                new BookOrderModel { BookID = "0001", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0002", OrderAmt = 1  },
+                new BookOrderModel { BookID = "0003", OrderAmt = 2  }
+            };
+
+            //act
+            double actualPrice = bo.GetBookOrderPrice(boList);
+
+            //return
+            Assert.AreEqual(expectedPrice, actualPrice);
+        }
+
     }
 }
