@@ -7,14 +7,14 @@ namespace BookSale
 {
     public abstract class BookOrderHandler
     {
-        private List<BookDataModel> _BookList;
+        protected List<BookDataModel> _BookList;
         public BookOrderHandler()
         {
             BookDataDao bDao = new BookDataDao();
             _BookList = bDao.GetAllBook();
         }
 
-        public double GetBookOrderPrice(List<BookOrderModel> boList)
+        public virtual double GetBookOrderPrice(List<BookOrderModel> boList)
         {
             double orderPrice = 0;
             foreach (BookOrderModel bo in boList)
